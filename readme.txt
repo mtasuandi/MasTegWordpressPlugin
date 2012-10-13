@@ -5,6 +5,6 @@ MasTeg Wordpress Plugin
 
 Personal Wordpress plugin for All in One Social Networking.
 
-Current content:
+Current feature:
 1. View newest post from http://fiksianan.kompasiana.com
 2. Tweet via Wordpress Plugin
