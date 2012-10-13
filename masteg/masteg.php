@@ -6,7 +6,7 @@ Description: Integration MasTeg activities on Wordpress.
 Version: 1.0
 Author: M Teguh A Suandi
 Author URI:  http://mtasuandi.wordpress.com
-License: Commercial, Copyright 2012, All rights reserved
+License: Free, Copyright 2012, All rights reserved
 */
 
 add_action('admin_menu', 'masteg_add_page');
