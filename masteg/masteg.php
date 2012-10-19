@@ -26,6 +26,7 @@ function masteg_options_page(){
 				<a class="nav-tab <?php if($tab == "masteg_bio") echo "nav-tab-active"; ?>" href="?page=masteg&tab=masteg_bio">Bio</a>
 				<a class="nav-tab <?php if($tab == "masteg_twitter") echo "nav-tab-active"; ?>" href="?page=masteg&tab=masteg_twitter">Twitter</a>
 				<a class="nav-tab <?php if($tab == "masteg_fiksiana") echo "nav-tab-active"; ?>" href="?page=masteg&tab=masteg_fiksiana">Fiksiana</a>
+				<a class="nav-tab <?php if($tab == "masteg_gmaps") echo "nav-tab-active"; ?>" href="?page=masteg&tab=masteg_gmaps">GMaps</a>
 			</h2>
 			<form action="options.php" enctype="multipart/form-data" method="post">
 			<?php
@@ -33,8 +34,9 @@ function masteg_options_page(){
 				do_settings_sections($tab);
 				$submitbutton = true;
 				if($tab == "masteg_bio") $submitbutton = false;
-				if($tab == "masteg_twitter") $submitbutton = false;//submit_button('Tweet');
+				if($tab == "masteg_twitter") $submitbutton = false;
 				if($tab == "masteg_fiksiana") $submitbutton = false;
+				if($tab == "masteg_gmaps") $submitbutton = false;
 			?>
 			</form>
 		</div>
@@ -56,12 +58,14 @@ function masteg_admin_init()
 	register_setting('masteg_fiksiana', 'masteg_fiksiana');
 	add_settings_section('masteg_fiksiana', 'Fiksiana Recent Article', 'masteg_fiksiana_text', 'masteg_fiksiana');
 
-
+	register_setting('masteg_gmaps', 'masteg_gmaps');
+	add_settings_section('masteg_gmaps', 'Google Maps', 'masteg_gmaps_text', 'masteg_gmaps');
 }
 require_once('includes/simple_html_dom.php');
 require_once('includes/masteg_fiksiana.php');
 require_once('includes/masteg_twitter.php');
 require_once('includes/masteg_bio.php');
+require_once('includes/masteg_gmaps.php');
 
 function masteg_styles(){
 

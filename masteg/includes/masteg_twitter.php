@@ -29,18 +29,23 @@ function masteg_twitter_validate($input){
 	$options['masteg_twitter_images_tmp_name']		= $_FILES['masteg_twitter_images']['tmp_name'];
 	$options['masteg_twitter_images_type']		= $_FILES['masteg_twitter_images']['type'];
 	
-	if(!empty ($options['masteg_twitter_tweet'])){
+	//if(!empty ($options['masteg_twitter_tweet'])){
 
 		require 'twitter/tmhOAuth.php';
 		require 'twitter/tmhUtilities.php';
 		$tmhOAuth = new tmhOAuth(array(
-		  'consumer_key'    => 'CONSUMER_KEY',
-		  'consumer_secret' => 'CONSUMER_SECRET',
-		  'user_token'      => 'USER_TOKEN',
-		  'user_secret'     => 'USER_SECRET',
+		  'consumer_key'    => 'Qi0SAj0cr5BJwTydsBM9zg',
+		  'consumer_secret' => 'Xg2yHEn71oUvVSL5705X9o5OlAm3CwTZ8zM5yyoPUc',
+		  'user_token'      => '109829124-cjf6bBagKGVwbqAJ8vVMFiqAEHtyGD2GEGR3af0I',
+		  'user_secret'     => 'B64uzKRTCr7foPSkjhhHfzhL5uFAlOGiVMq0jYiLM',
 		));
-
-		$trends_url = "http://api.twitter.com/1/statuses/followers/masteg_.json";
+		
+		$code = $tmhOAuth->request(
+							'GET',
+							'https://api.twitter.com/1.1/statuses/home_timeline.json');
+		
+		/*
+		$trends_url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $trends_url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -53,7 +58,7 @@ function masteg_twitter_validate($input){
 				$url = $friends['screen_name'];
 				$name = $friends['name'];
 			}
-		
+		/*
 		if($options['masteg_twitter_images_name'] != ""){
 			$tweet = $options['masteg_twitter_tweet'];
 			$image = "@{$_FILES['masteg_twitter_images']['tmp_name']};type={$_FILES['masteg_twitter_images']['type']};filename={$_FILES['masteg_twitter_images']['name']}";
@@ -92,7 +97,7 @@ function masteg_twitter_validate($input){
 		}
 	
 	}
-	
+	*/
 	return null;//$options;
 }
 ?>
